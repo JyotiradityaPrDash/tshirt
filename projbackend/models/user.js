@@ -38,7 +38,8 @@ var userSchema = new mongoose.Schema({
     type: Array,
     default: []
   }
-});
+},
+{timestamp: true}); //records the time of entry
 
 userSchema.virtual("password")
   .set(function(password){
