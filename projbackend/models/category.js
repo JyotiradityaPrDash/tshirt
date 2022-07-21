@@ -11,4 +11,4 @@ const categorySchema = new mongoose.Schema({
 },
 {timestamp: true}); //records the time of entry
 
-module.exports = mongoose.model("Category", categorySchema);
+module.exports = mongoose.model("Category", categorySchema);//Object
