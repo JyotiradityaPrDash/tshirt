@@ -19,6 +19,21 @@ app.get("/signout", (req, res) => {
 app.get("/raja", (req, res) => {
     return res.send("Bhaina");
 });
+const admin = (req, res) => {
+    return res.send("youre");
+};
+
+const isAdmin = (req, res, next) => {
+    console.log("isAdmin")
+    next();
+};
+
+const isLoggedIn = (req, res, next) => {
+    console.log("logg")
+    next();
+};
+
+app.get("/admin", isLoggedIn, isAdmin, admin);
 
 //shows up in console
 app.listen(port, () => {
