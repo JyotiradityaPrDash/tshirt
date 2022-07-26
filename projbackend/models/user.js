@@ -52,7 +52,7 @@ userSchema.virtual("password")
   })
 
 //Encrypted the Password using UUID as SALT
-userSchema.method = {
+userSchema.methods = {
 
   autheticate: function(plainpassword){
     return this.securePassword(plainpassword) 
@@ -60,7 +60,7 @@ userSchema.method = {
 },
 
   securePassword: function(plainpassword){
-    if(!password) return "";
+    if(!plainpassword) return "";
     try{
       return crypto.createHmac('sha256', this.salt)
       .update(plainpassword)
@@ -72,4 +72,4 @@ userSchema.method = {
   }
 }
 
-module.exports = mongoose.model("User",userSchema)
+module.exports = mongoose.model("User",userSchema);
